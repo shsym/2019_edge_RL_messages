@@ -4,6 +4,7 @@ import "time"
 
 // Redefine time units for uint64
 const (
+	MessageFormatVersion = 2
 	Nanosecond  		 = 1
 	Microsecond          = 1000 * Nanosecond
 	Millisecond          = 1000 * Microsecond
@@ -62,28 +63,38 @@ func GetDefaultEdgeStat() EdgeStat{
 }
 
 type EdgeAdjacent struct{
-	EdgeId		uint32
-	AdjEdgeId1	uint32
-	AdjEdgeId2	uint32
-	AdjEdgeId3	uint32
-	AdjEdgeId4	uint32
-	AdjEdgeId5	uint32
+	EdgeId			uint32
+	AdjEdgeId1		uint32
+	AdjEdgeAddr1	string
+	AdjEdgeId2		uint32
+	AdjEdgeAddr2	string
+	AdjEdgeId3		uint32
+	AdjEdgeAddr3	string
+	AdjEdgeId4		uint32
+	AdjEdgeAddr4	string
+	AdjEdgeId5		uint32
+	AdjEdgeAddr5	string
 }
 
 func GetDefaultEdgeAdjacent() EdgeAdjacent{
 	return EdgeAdjacent{
 		EdgeId:     0,
 		AdjEdgeId1: 0,
+		AdjEdgeAddr1: "",
 		AdjEdgeId2: 0,
+		AdjEdgeAddr2: "",
 		AdjEdgeId3: 0,
+		AdjEdgeAddr3: "",
 		AdjEdgeId4: 0,
+		AdjEdgeAddr4: "",
 		AdjEdgeId5: 0,
+		AdjEdgeAddr5: "",
 	}
 }
 
 type EdgeReports struct {
 	EdgeId		uint32
-	ServiceId	uint32
+	ServiceName	string
 	ProcTime	uint64
 	TimeStamp	time.Time
 }
@@ -91,7 +102,7 @@ type EdgeReports struct {
 func GetDefaultEdgeReport() EdgeReports{
 	return EdgeReports{
 		EdgeId:    0,
-		ServiceId: 0,
+		ServiceName: "DefaultService",
 		ProcTime:  500 * Millisecond,
 		TimeStamp: time.Now(),
 	}
