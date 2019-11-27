@@ -96,15 +96,23 @@ type EdgeReports struct {
 	EdgeId		uint32
 	ServiceName	string
 	ProcTime	uint64
+	ParamExp	float32
+	ParamCoeff	float32
+	ParamBias	float32
+	Load 		float32
 	TimeStamp	time.Time
 }
 
 func GetDefaultEdgeReport() EdgeReports{
 	return EdgeReports{
-		EdgeId:    0,
+		EdgeId:      0,
 		ServiceName: "DefaultService",
-		ProcTime:  500 * Millisecond,
-		TimeStamp: time.Now(),
+		ProcTime:    500 * Millisecond,
+		ParamExp:    1.,
+		ParamCoeff:  1.,
+		ParamBias:   1.,
+		Load:        0.5,
+		TimeStamp:   time.Now(),
 	}
 }
 
