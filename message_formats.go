@@ -39,8 +39,6 @@ type EdgeStat struct{
 	EdgeIp		string
 	PerfCpu		float32
 	PerfMem		float32
-	//BenchRes 	BenchmarkRecords
-	//CtrlParams	ControlParameters
 	ParamExp	float32
 	ParamCoeff	float32
 	ParamBias	float32
@@ -49,9 +47,9 @@ type EdgeStat struct{
 
 func GetDefaultEdgeStat() EdgeStat{
 	return EdgeStat{
-		EdgeId:     2,
+		EdgeId:     0,
 		EdgeMac:    "00:11:22:33:44:55",
-		EdgeIp:     "165.132.106.7",
+		EdgeIp:     "123.123.123.123",
 		ParamCoeff:	0.,
 		ParamExp:	0.,
 		ParamBias:	0.,
@@ -96,6 +94,7 @@ type EdgeReports struct {
 	EdgeId		uint32
 	ServiceName	string
 	ProcTime	uint64
+	ServSatis	float32		// 0 ~ 1
 	ParamExp	float32
 	ParamCoeff	float32
 	ParamBias	float32
@@ -108,6 +107,7 @@ func GetDefaultEdgeReport() EdgeReports{
 		EdgeId:      0,
 		ServiceName: "DefaultService",
 		ProcTime:    500 * Millisecond,
+		ServSatis:	 0.,
 		ParamExp:    1.,
 		ParamCoeff:  1.,
 		ParamBias:   1.,
