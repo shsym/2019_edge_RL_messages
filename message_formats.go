@@ -22,6 +22,9 @@ const(
 
 	// Request from edges
 	EdgeAdjacentReq = "EdgeAdjacentReq"
+
+	// Reply from central controller
+	EdgeStatReplyMsg = "EdgeStatReply"
 )
 
 type LifeCheck struct {
