@@ -108,9 +108,9 @@ func GetDefaultEdgeReport() EdgeReports{
 		ServiceName: "DefaultService",
 		ProcTime:    500 * Millisecond,
 		ServSatis:	 0.,
-		ParamExp:    1.,
+		ParamExp:    0.,
 		ParamCoeff:  1.,
-		ParamBias:   1.,
+		ParamBias:   0.,
 		Load:        0.5,
 		TimeStamp:   time.Now(),
 	}
@@ -152,6 +152,11 @@ func GetDefaultEdgeConnection() EdgeConnection{
 		Rtt:         100 * Millisecond,
 		TimeStamp:   time.Now(),
 	}
+}
+
+type EdgeStatReply struct{
+	EdgeId		uint32
+	Neighbors	string		// would be xml or json format
 }
 
 //type BenchmarkRecords struct {
