@@ -25,6 +25,9 @@ const(
 
 	// Reply from central controller
 	EdgeStatReplyMsg = "EdgeStatReply"
+
+	// add by TaeYoung
+	ServiceInstallMsg = "ServiceInstall"
 )
 
 type LifeCheck struct {
