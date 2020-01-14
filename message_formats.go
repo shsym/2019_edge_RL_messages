@@ -123,7 +123,7 @@ func GetDefaultEdgeReport() EdgeReports{
 }
 
 type ServiceStat struct{
-	ServiceId		uint32
+	ServiceId		uint32	`xorm:"int not null unique pk autoincr index"`
 	ServiceName		string
 	ServiceImage	string
 	DefaultCpu		float32
